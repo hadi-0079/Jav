@@ -54,11 +54,11 @@ hoverTargets.forEach((el) => {
 
 const textElement = document.getElementById("typing-text");
 const phrases = [
-  "Defining Elegance.",
-  "Breaking Algorithms.",
-  "Creating Magic.",
-  "Leading Tomorrow.",
-  "Born to Inspire.",
+  "Helped Me More Than She Knows.",
+  "Incredibly Smart & Kind.",
+  "Wants to Learn Coding Someday.",
+  "The Best Class Fellow.",
+  "Always There When It Matters.",
 ];
 let phraseIndex = 0;
 let charIndex = 0;
@@ -138,6 +138,18 @@ window.addEventListener("scroll", () => {
   });
 }, { passive: true });
 
+const darkSections = document.querySelectorAll(".contact");
+darkSections.forEach((sec) => {
+  sec.addEventListener("mouseenter", () => {
+    cursor    && cursor.classList.add("on-dark");
+    cursorDot && cursorDot.classList.add("on-dark");
+  });
+  sec.addEventListener("mouseleave", () => {
+    cursor    && cursor.classList.remove("on-dark");
+    cursorDot && cursorDot.classList.remove("on-dark");
+  });
+});
+
 const revealEls = document.querySelectorAll(
   ".section-label, .section-heading, .about-text h2, .about-text p, " +
   ".about-card, .stat, .skill-card, .contact-sub, .contact-actions"
@@ -204,3 +216,4 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
