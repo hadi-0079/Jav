@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap");
 
-/* ══════════════════════════════════
-   RESET & BASE
-══════════════════════════════════ */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -37,9 +34,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ══════════════════════════════════
-   CUSTOM CURSOR
-══════════════════════════════════ */
 .mouse-cursor {
   width: 36px;
   height: 36px;
@@ -73,9 +67,6 @@ body {
   border-color: var(--accent);
 }
 
-/* ══════════════════════════════════
-   PARTICLES
-══════════════════════════════════ */
 .particle {
   position: fixed;
   width: var(--size, 8px);
@@ -96,9 +87,6 @@ body {
   100% { transform: translateY(-110vh) translateX(40px) scale(0.5); opacity: 0; }
 }
 
-/* ══════════════════════════════════
-   NAVBAR
-══════════════════════════════════ */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -180,9 +168,6 @@ body {
   opacity: 0.6;
 }
 
-/* ══════════════════════════════════
-   HERO
-══════════════════════════════════ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -222,7 +207,6 @@ body {
   max-width: 100%;
 }
 
-/* TAG */
 .tag {
   font-size: 12px;
   font-weight: 700;
@@ -247,7 +231,6 @@ body {
 .tag::before { left: 0; }
 .tag::after  { right: 0; }
 
-/* H1 */
 h1 {
   font-family: "Syne", sans-serif;
   font-size: clamp(2.8rem, 13vw, 14rem);
@@ -272,7 +255,6 @@ h1:hover {
   filter: drop-shadow(0 0 30px var(--accent-glow));
 }
 
-/* TYPEWRITER */
 .typewriter {
   font-size: clamp(1rem, 2vw, 1.5rem);
   color: var(--mid);
@@ -298,7 +280,6 @@ h1:hover {
   50%       { opacity: 0; }
 }
 
-/* HERO SUB */
 .hero-sub {
   margin-top: 14px;
   font-size: 15px;
@@ -308,7 +289,6 @@ h1:hover {
   animation: fadeUp 1.2s ease both 0.45s;
 }
 
-/* CTA */
 .cta-box {
   margin-top: 44px;
   display: flex;
@@ -376,7 +356,6 @@ h1:hover {
   color: var(--white);
 }
 
-/* SCROLL INDICATOR */
 .scroll-indicator {
   position: absolute;
   bottom: 36px;
@@ -409,7 +388,6 @@ h1:hover {
   50%       { transform: translateX(-50%) translateY(10px); }
 }
 
-/* STICKERS */
 .sticker {
   position: absolute;
   background: var(--white);
@@ -449,9 +427,6 @@ h1:hover {
   50%       { transform: translateY(-18px) rotate(var(--rotate)); }
 }
 
-/* ══════════════════════════════════
-   SECTION SHARED
-══════════════════════════════════ */
 section {
   scroll-snap-align: start;
 }
@@ -503,9 +478,6 @@ section {
   background-clip: text;
 }
 
-/* ══════════════════════════════════
-   ABOUT SECTION
-══════════════════════════════════ */
 .about {
   background: var(--light);
 }
@@ -592,7 +564,6 @@ section {
   text-transform: uppercase;
 }
 
-/* About Card */
 .about-card {
   position: relative;
   border-radius: var(--radius);
@@ -675,9 +646,6 @@ section {
   border-color: var(--accent);
 }
 
-/* ══════════════════════════════════
-   SKILLS SECTION
-══════════════════════════════════ */
 .skills {
   background: var(--white);
 }
@@ -751,9 +719,6 @@ section {
   width: var(--fill);
 }
 
-/* ══════════════════════════════════
-   CONTACT SECTION
-══════════════════════════════════ */
 .contact {
   background: var(--dark);
   position: relative;
@@ -859,7 +824,6 @@ section {
   transform: translateY(-3px);
 }
 
-/* FOOTER BAR */
 .footer-bar {
   border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
@@ -873,17 +837,11 @@ section {
   font-weight: 500;
 }
 
-/* ══════════════════════════════════
-   ANIMATIONS
-══════════════════════════════════ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════════════════════════════
-   HAMBURGER BUTTON
-══════════════════════════════════ */
 .nav-right {
   display: flex;
   align-items: center;
@@ -916,7 +874,6 @@ section {
   transform-origin: center;
 }
 
-/* Hamburger → X animation */
 .hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -928,7 +885,6 @@ section {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile overlay menu */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -992,59 +948,46 @@ section {
   width: 100%;
 }
 
-/* ══════════════════════════════════
-   SCROLL SNAP — desktop only
-══════════════════════════════════ */
 @media (min-width: 901px) {
   html { scroll-snap-type: y mandatory; }
   section { scroll-snap-align: start; }
 }
 
-/* ══════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════ */
-/* ══ TABLET (≤ 900px) ══ */
 @media (max-width: 900px) {
-  /* Navbar */
+
   .navbar { padding: 20px 30px; }
   .navbar.scrolled { padding: 14px 30px; }
   .nav-links { gap: 20px; }
   .hamburger { display: flex; }
 
-  /* Other sections */
   .section-inner { padding: 80px 30px; }
   .footer-bar { padding: 20px 30px; flex-direction: column; gap: 8px; text-align: center; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-text h2 { font-size: 2rem; }
   .skills-grid { grid-template-columns: 1fr; }
 
-  /* Stickers — smaller, repositioned to corners so they don't overlap text */
   .sticker { font-size: 11px; padding: 9px 14px; box-shadow: 3px 3px 0px var(--dark); }
   .s1 { top: 14%; left: 2%; }
   .s2 { top: 14%; right: 2%; }
   .s3 { bottom: 16%; left: 2%; }
   .s4 { bottom: 16%; right: 2%; }
 
-  /* Hero breathing room */
   .hero { padding-top: 90px; padding-bottom: 60px; }
   .hero-sub { font-size: 14px; max-width: 85%; }
   .cta-box { margin-top: 28px; gap: 12px; }
 }
 
-/* ══ MOBILE (≤ 600px) ══ */
 @media (max-width: 600px) {
-  /* Navbar */
+
   .navbar { padding: 16px 20px; }
   .navbar.scrolled { padding: 12px 20px; }
   .nav-links { display: none; }
   .nav-meta { display: none; }
   .hamburger { display: flex; }
 
-  /* Hide body cursor on touch devices */
   body { cursor: auto; }
   .mouse-cursor, .cursor-dot { display: none; }
 
-  /* Hero — fills full screen, content centered nicely */
   .hero {
     min-height: 100svh;
     padding: 90px 24px 70px;
@@ -1055,14 +998,11 @@ section {
     overflow: hidden;
   }
 
-  /* STICKERS — hide completely on mobile, they break layout */
   .sticker { display: none !important; }
 
-  /* Tag */
   .tag { font-size: 10px; letter-spacing: 3px; padding: 0; margin-bottom: 12px; }
   .tag::before, .tag::after { display: none; }
 
-  /* Heading — simple vw-only value that always fits */
   h1 {
     font-size: 11.5vw;
     letter-spacing: -1px;
@@ -1070,10 +1010,8 @@ section {
     line-height: 1;
   }
 
-  /* Typewriter */
   .typewriter { font-size: 0.95rem; min-height: 34px; }
 
-  /* Sub paragraph — remove <br> effect on small screens */
   .hero-sub {
     font-size: 13px;
     max-width: 100%;
@@ -1082,7 +1020,6 @@ section {
     line-height: 1.6;
   }
 
-  /* CTA buttons */
   .cta-box {
     flex-direction: column;
     width: 100%;
@@ -1096,10 +1033,8 @@ section {
     font-size: 14px;
   }
 
-  /* Scroll indicator */
   .scroll-indicator { bottom: 20px; }
 
-  /* Other sections */
   .section-inner { padding: 64px 20px; }
   .about-stats { gap: 20px; flex-wrap: wrap; }
   .stat-num { font-size: 2rem; }

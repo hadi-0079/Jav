@@ -1,18 +1,3 @@
-/* ══════════════════════════════════════════════════
-   Javeria Portfolio — script.js
-   Features:
-   - Dual custom cursor (ring + dot)
-   - Typewriter effect with multiple phrases
-   - Sticker parallax on mouse move
-   - Sticker click bounce
-   - Navbar scroll state + active link tracking
-   - IntersectionObserver scroll animations
-   - Animated stat counters
-   - Skill bar fill animation
-   - Hamburger mobile menu
-══════════════════════════════════════════════════ */
-
-/* ─── HAMBURGER MENU ─── */
 const hamburger  = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobLinks   = document.querySelectorAll(".mob-link");
@@ -20,7 +5,7 @@ const mobLinks   = document.querySelectorAll(".mob-link");
 function toggleMenu() {
   hamburger.classList.toggle("open");
   mobileMenu.classList.toggle("open");
-  // Prevent body scroll when menu is open
+
   document.body.style.overflow = mobileMenu.classList.contains("open") ? "hidden" : "";
 }
 
@@ -28,7 +13,6 @@ if (hamburger) {
   hamburger.addEventListener("click", toggleMenu);
 }
 
-// Close menu when a link is clicked
 mobLinks.forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("open");
@@ -37,8 +21,6 @@ mobLinks.forEach((link) => {
   });
 });
 
-
-/* ─── CUSTOM CURSOR ─── */
 const cursor    = document.querySelector(".mouse-cursor");
 const cursorDot = document.querySelector(".cursor-dot");
 let mouseX = 0, mouseY = 0;
@@ -53,7 +35,6 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
-// Cursor dot uses smooth lerp for trailing feel
 function animateDot() {
   dotX += (mouseX - dotX) * 0.15;
   dotY += (mouseY - dotY) * 0.15;
@@ -65,15 +46,12 @@ function animateDot() {
 }
 animateDot();
 
-// Hover effect on interactive elements
 const hoverTargets = document.querySelectorAll("a, h1, .sticker, .logo, button, .skill-card, .social-btn");
 hoverTargets.forEach((el) => {
   el.addEventListener("mouseenter", () => cursor && cursor.classList.add("hovered"));
   el.addEventListener("mouseleave", () => cursor && cursor.classList.remove("hovered"));
 });
 
-
-/* ─── TYPEWRITER ─── */
 const textElement = document.getElementById("typing-text");
 const phrases = [
   "Defining Elegance.",
@@ -111,8 +89,6 @@ function typeWrite() {
 }
 typeWrite();
 
-
-/* ─── STICKER PARALLAX ─── */
 const stickers = document.querySelectorAll(".sticker");
 
 document.addEventListener("mousemove", (e) => {
@@ -128,7 +104,6 @@ document.addEventListener("mousemove", (e) => {
   });
 });
 
-// Sticker click bounce
 stickers.forEach((sticker) => {
   sticker.addEventListener("click", function () {
     this.style.transition = "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)";
@@ -140,19 +115,16 @@ stickers.forEach((sticker) => {
   });
 });
 
-
-/* ─── NAVBAR SCROLL STATE ─── */
 const navbar = document.querySelector(".navbar");
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
 window.addEventListener("scroll", () => {
-  // Scrolled class for glass blur
+
   if (navbar) {
     navbar.classList.toggle("scrolled", window.scrollY > 60);
   }
 
-  // Active nav link
   let current = "";
   sections.forEach((sec) => {
     const top = sec.offsetTop - 120;
@@ -166,8 +138,6 @@ window.addEventListener("scroll", () => {
   });
 }, { passive: true });
 
-
-/* ─── INTERSECTION OBSERVER — SCROLL ANIMATIONS ─── */
 const revealEls = document.querySelectorAll(
   ".section-label, .section-heading, .about-text h2, .about-text p, " +
   ".about-card, .stat, .skill-card, .contact-sub, .contact-actions"
@@ -179,11 +149,9 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
 
-        // Animate skill bars
         const fill = entry.target.querySelector(".skill-fill");
         if (fill) fill.classList.add("animated");
 
-        // Animate stat counters when stat becomes visible
         if (entry.target.classList.contains("stat")) {
           animateCounter(entry.target);
         }
@@ -197,7 +165,6 @@ const observer = new IntersectionObserver(
 
 revealEls.forEach((el) => observer.observe(el));
 
-// Also observe skill fills directly
 document.querySelectorAll(".skill-fill").forEach((fill) => {
   const skillObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
@@ -208,8 +175,6 @@ document.querySelectorAll(".skill-fill").forEach((fill) => {
   skillObserver.observe(fill);
 });
 
-
-/* ─── STAT COUNTER ANIMATION ─── */
 function animateCounter(statEl) {
   const numEl  = statEl.querySelector(".stat-num");
   if (!numEl) return;
@@ -221,7 +186,8 @@ function animateCounter(statEl) {
   const step = (timestamp) => {
     if (!start) start = timestamp;
     const progress = Math.min((timestamp - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const eased = 1 - Math.pow(1 - progress, 3); 
+
     numEl.textContent = Math.floor(eased * target);
     if (progress < 1) requestAnimationFrame(step);
     else numEl.textContent = target;
@@ -229,8 +195,6 @@ function animateCounter(statEl) {
   requestAnimationFrame(step);
 }
 
-
-/* ─── SMOOTH ANCHOR NAV ─── */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const target = document.querySelector(anchor.getAttribute("href"));
