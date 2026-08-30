@@ -54,11 +54,12 @@ hoverTargets.forEach((el) => {
 
 const textElement = document.getElementById("typing-text");
 const phrases = [
-  "Helped Me More Than She Knows.",
-  "Incredibly Smart & Kind.",
-  "Wants to Learn Coding Someday.",
-  "The Best Class Fellow.",
-  "Always There When It Matters.",
+  "Thank You for Everythig... 💓 ",
+  "You Made a Real Difference.",
+  "One of the Kindest People I Know.",
+  "Your Dreams Will Come True.",
+  "Thanks for giving Best Memories 🩶",
+  "Hemsha Yad rhen gi ap... Hmesha 🥹"
 ];
 let phraseIndex = 0;
 let charIndex = 0;
