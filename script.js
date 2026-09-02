@@ -1,3 +1,19 @@
+const lenis = new Lenis({
+  duration: 1.2,
+  smoothWheel: true,
+  wheelMultiplier: 0.9,
+  touchMultiplier: 1.2,
+});
+
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+
 const hamburger  = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobLinks   = document.querySelectorAll(".mob-link");
@@ -211,10 +227,14 @@ function animateCounter(statEl) {
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const target = document.querySelector(anchor.getAttribute("href"));
+
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth" });
+
+      lenis.scrollTo(target, {
+        offset: 0,
+        duration: 1.4,
+      });
     }
   });
 });
-
